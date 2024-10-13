@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 sticky top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-3xl font-bold font-serif tracking-wider hover:text-yellow-300 transition duration-300">JD</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="about.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">About</a>
+                <a href="education.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Education</a>
+                <a href="skills.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Skills</a>
+                <a href="experience.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Experience</a>
+                <a href="projects.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Projects</a>
+                <a href="contact.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden absolute top-full left-0 right-0 bg-blue-600 shadow-lg" id="mobile-menu">
+            <a href="about.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">About</a>
+            <a href="education.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Education</a>
+            <a href="skills.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Skills</a>
+            <a href="experience.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Experience</a>
+            <a href="projects.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Projects</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <main id="education" class="my-16 px-4 max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-indigo-600 relative">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600">Educational Journey</span>
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+        </h2>
+        <div class="space-y-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4">
+                    <h3 class="text-2xl font-semibold text-white">Bachelor of Science in Computer Science</h3>
+                    <p class="text-indigo-100">XYZ University, <span class="font-medium">2018-2022</span></p>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Graduated with Honors
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Specialized in Software Development and Data Structures
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Completed a Capstone Project on AI-Powered Chatbots
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-4">
+                    <h3 class="text-2xl font-semibold text-white">Web Development Bootcamp</h3>
+                    <p class="text-purple-100">Code Academy, <span class="font-medium">2023</span></p>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Focused on Full-Stack Development (React, Node.js, MongoDB)
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Built responsive websites and RESTful APIs
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Completed a team project to create a social media app
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2024 John Doe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

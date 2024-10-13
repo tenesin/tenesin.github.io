@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Skills</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 sticky top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold font-serif tracking-wider hover:text-yellow-300 transition duration-300">JD</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="about.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">About</a>
+                <a href="education.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Education</a>
+                <a href="skills.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Skills</a>
+                <a href="experience.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Experience</a>
+                <a href="projects.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Projects</a>
+                <a href="contact.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden absolute top-full left-0 right-0 bg-blue-600 shadow-lg" id="mobile-menu">
+            <a href="about.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">About</a>
+            <a href="education.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Education</a>
+            <a href="skills.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Skills</a>
+            <a href="experience.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Experience</a>
+            <a href="projects.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Projects</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+
+    <section id="experience" class="min-h-screen bg-white p-12 flex items-center justify-center">
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-extrabold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-slide-in">
+                Experience
+            </h2>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div onclick="showExperience('exp1')" class="skill-card p-8 bg-white text-gray-800 rounded-3xl shadow-xl border-4 border-transparent hover:border-blue-500 hover:shadow-2xl hover:-translate-y-3 transition duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-4">Junior Web Developer</h3>
+                    <p class="text-sm mb-2 font-semibold text-gray-500">Tech Solutions Inc. <br> June 2022 - Present</p>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Developed responsive websites</li>
+                        <li>Improved UI/UX with design team</li>
+                        <li>Optimized performance by 40%</li>
+                    </ul>
+                </div>
+    
+                <div onclick="showExperience('exp2')" class="skill-card p-8 bg-white text-gray-800 rounded-3xl shadow-xl border-4 border-transparent hover:border-pink-500 hover:shadow-2xl hover:-translate-y-3 transition duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-4">Frontend Developer Intern</h3>
+                    <p class="text-sm mb-2 font-semibold text-gray-500">Creative Web Studio <br> Jan 2022 - May 2022</p>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Worked with React & Tailwind CSS</li>
+                        <li>Integrated RESTful APIs</li>
+                        <li>Improved web accessibility</li>
+                    </ul>
+                </div>
+    
+                <div onclick="showExperience('exp3')" class="skill-card p-8 bg-white text-gray-800 rounded-3xl shadow-xl border-4 border-transparent hover:border-green-500 hover:shadow-2xl hover:-translate-y-3 transition duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-4">Freelance Web Developer</h3>
+                    <p class="text-sm mb-2 font-semibold text-gray-500">July 2021 - Dec 2021</p>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Designed websites for businesses</li>
+                        <li>Managed projects end-to-end</li>
+                        <li>Improved SEO visibility</li>
+                    </ul>
+                </div>
+    
+                <div onclick="showExperience('exp4')" class="skill-card p-8 bg-white text-gray-800 rounded-3xl shadow-xl border-4 border-transparent hover:border-blue-700 hover:shadow-2xl hover:-translate-y-3 transition duration-300 cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-4">Web Development Tutor</h3>
+                    <p class="text-sm mb-2 font-semibold text-gray-500">Code Learning Hub <br> Sep 2020 - Jun 2021</p>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Taught web development basics</li>
+                        <li>Developed hands-on exercises</li>
+                        <li>Mentored over 50 students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2024 John Doe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

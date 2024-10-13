@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishaq Yudha - About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 sticky top-0 z-10 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold font-serif tracking-wider hover:text-yellow-300 transition duration-300">IY</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="about.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">About</a>
+                <a href="education.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Education</a>
+                <a href="skills.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Skills</a>
+                <a href="experience.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Experience</a>
+                <a href="projects.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Projects</a>
+                <a href="contact.html" class="hover:text-yellow-300 transition duration-300 transform hover:scale-110">Contact</a>
+            </div>
+            <button class="md:hidden text-2xl focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden absolute top-full left-0 right-0 bg-blue-600 shadow-lg" id="mobile-menu">
+            <a href="about.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">About</a>
+            <a href="education.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Education</a>
+            <a href="skills.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Skills</a>
+            <a href="experience.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Experience</a>
+            <a href="projects.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Projects</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-blue-700 transition duration-300">Contact</a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen flex items-center justify-center" style="background-image: url('https://source.unsplash.com/random/1920x1080?nature'); background-size: cover; background-position: center;">
+        <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-2xl max-w-4xl mx-4 my-8">
+            <div class="flex flex-col md:flex-row items-center mb-8">
+                <img src="/assets/img/test.jpeg" alt="Ishaq Yudha" class="rounded-full w-48 h-48 object-cover border-4 border-blue-500 shadow-lg mb-4 md:mb-0 md:mr-8 float-animation">
+                <div>
+                    <h1 class="text-4xl font-bold text-blue-600 mb-2">Ishaq Yudha</h1>
+                    <h2 class="text-2xl text-gray-600 mb-4">Web Developer & Designer</h2>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-blue-500 hover:text-blue-600 transition"><i class="fab fa-linkedin fa-2x"></i></a>
+                        <a href="#" class="text-blue-500 hover:text-blue-600 transition"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="#" class="text-blue-500 hover:text-blue-600 transition"><i class="fab fa-twitter fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                I'm a <span class="text-blue-600 font-semibold">passionate web developer</span> with a keen eye for design. I love creating beautiful, functional websites that provide great user experiences. My focus is on building responsive, user-friendly web applications that help businesses achieve their digital goals.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-blue-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">My Expertise</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Responsive Web Design</li>
+                        <li>Frontend Development (React, Vue)</li>
+                        <li>Backend Development (Node.js, Python)</li>
+                        <li>UI/UX Design</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-purple-600 mb-2">When I'm Not Coding</h3>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Hiking in nature</li>
+                        <li>Reading sci-fi novels</li>
+                        <li>Playing guitar</li>
+                        <li>Experimenting with new recipes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="contact.html" class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-8 rounded-full shadow-md hover:from-blue-600 hover:to-purple-600 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2024 Ishaq Yudha. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
