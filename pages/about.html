@@ -11,8 +11,161 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .bg-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            position: relative;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .icon-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            backdrop-filter: blur(0px);
+            letter-spacing: 0.8px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 1px solid rgba(156, 156, 156, 0.466);
+            z-index: 1;
+        }
+        
+        .btn-bg {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: #181818;
+            z-index: -1;
+            border-radius: 10px;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        
+        /* Tooltip Styling */
+        .tooltip {
+            position: absolute;
+            top: -40px;
+            background: #000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: #000 transparent transparent transparent;
+        }
+        
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 10px;
+            opacity: 0;
+            transition: all 0.5s;
+            z-index: 0;
+        }
+        
+        .linkedin .icon-container i { color: #0077b5; }
+        .github .icon-container i { color: #333; }
+        .instagram .icon-container i { color: #e4405f; }
+        
+        .social-btn:hover .btn-bg {
+            transform: rotate(35deg);
+            transform-origin: bottom;
+        }
+        .social-btn:hover .icon-container {
+            background-color: rgba(156, 156, 156, 0.466);
+            backdrop-filter: blur(4px);
+            transform: translateY(-3px);
+        }
+        
+        .social-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -45px;
+        }
+        
+        .social-btn:hover .ripple {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .social-btn:active .icon-container {
+            transform: scale(0.95);
+        }
+        
+        /* Platform-specific hover effects */
+        .linkedin:hover .icon-container {
+            border-color: #0077b5;
+            box-shadow: 0 0 15px rgba(0, 119, 181, 0.3);
+        }
+        
+        .github:hover .icon-container {
+            border-color: #333;
+            box-shadow: 0 0 15px rgba(51, 51, 51, 0.3);
+        }
+        
+        .instagram:hover .icon-container {
+            border-color: #e4405f;
+            box-shadow: 0 0 15px rgba(228, 64, 95, 0.3);
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .social-btn:hover {
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Loading animation on hover */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .social-btn:hover::after {
+            content: '';
+            position: absolute;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 10px;
+            animation: rotate 1s linear infinite;
         }
         .float-animation {
             animation: float 3s ease-in-out infinite;
@@ -67,16 +220,55 @@
     <main class="min-h-screen flex items-center justify-center bg-pattern">
         <div class="bg-white rounded-lg shadow-2xl max-w-4xl mx-4 my-8 overflow-hidden">
             <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/3 bg-gradient p-8 flex items-center justify-center">
-                    <img src="/assets/img/profile.jpeg" alt="Ishaq Yudha" class="rounded-full w-48 h-48 object-cover border-4 border-white shadow-lg float-animation">
-                </div>
+                <div class="md:w-1/3 p-8 flex items-center justify-center">
+                    <div class="relative w-64 h-64 group">
+                      <!-- Gradient border with sleek styling -->
+                      <div class="absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-full"></div>
+                      <!-- Clean inner white frame for separation -->
+                      <div class="absolute inset-1 bg-white rounded-full shadow-lg"></div>
+                      <!-- Profile Image with smooth hover and shadow effects -->
+                      <img src="/assets/img/profile.jpeg" alt="Ishaq Yudha" 
+                        class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-2 border-white shadow-lg transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-lg">
+                      <!-- Sleek accent border on hover -->
+                      <div class="absolute -inset-1 border-2 border-transparent rounded-full group-hover:border-blue-500 group-hover:transition-colors duration-500"></div>
+                    </div>
+                  </div>
+                  
+                  
                 <div class="md:w-2/3 p-8">
                     <h1 class="text-5xl font-bold text-gradient mb-2">Ishaq Yudha</h1>
                     <h2 class="text-2xl text-gray-600 mb-4">Web Developer & Designer</h2>
-                    <div class="flex space-x-4 mb-6">
-                        <a href="https://www.linkedin.com/in/ishaqyudha/" class="text-blue-500 hover:text-blue-600 transition transform hover:scale-110"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="https://github.com/tenesin" class="text-gray-700 hover:text-gray-800 transition transform hover:scale-110"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="https://www.instagram.com/ishaqyudha_/" class="text-pink-500 hover:text-pink-600 transition transform hover:scale-110"><i class="fab fa-instagram fa-2x"></i></a>
+                    <!-- Social Media Links -->
+                    <div class="social-links">
+                        <!-- LinkedIn Button -->
+                        <a href="https://www.linkedin.com/in/ishaqyudha/" class="social-btn linkedin">
+                            <span class="icon-container">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </span>
+                            <span class="btn-bg"></span>
+                            <span class="tooltip">LinkedIn</span>
+                            <span class="ripple"></span>
+                        </a>
+                        
+                        <!-- GitHub Button -->
+                        <a href="https://github.com/tenesin" class="social-btn github">
+                            <span class="icon-container">
+                                <i class="fab fa-github text-2xl"></i>
+                            </span>
+                            <span class="btn-bg"></span>
+                            <span class="tooltip">GitHub</span>
+                            <span class="ripple"></span>
+                        </a>
+                        
+                        <!-- Instagram Button -->
+                        <a href="https://www.instagram.com/ishaqyudha_/" class="social-btn instagram">
+                            <span class="icon-container">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </span>
+                            <span class="btn-bg"></span>
+                            <span class="tooltip">Instagram</span>
+                            <span class="ripple"></span>
+                        </a>
                     </div>
                     <p class="text-lg text-gray-700 mb-6 leading-relaxed">
                         I'm a <span class="font-semibold text-gradient">passionate web developer</span> with a keen eye for design. I love creating beautiful, functional websites that provide great user experiences. My focus is on building responsive, user-friendly web applications that help businesses achieve their digital goals.
@@ -101,12 +293,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <a href="contact.html" class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-8 rounded-full shadow-md hover:from-blue-600 hover:to-purple-600 transition duration-300 transform hover:scale-105">
-                            <i class="fas fa-envelope mr-2"></i>
-                            Get in Touch
-                        </a>
-                    </div>
+                    <a href="/pages/contact.html"><button class="group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-rose-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-rose-300 relative bg-neutral-800 h-16 w-64 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-violet-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-rose-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
+                        Get in touch
+                      </button></a>
                 </div>
             </div>
         </div>

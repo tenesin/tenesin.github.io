@@ -137,14 +137,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Success Alert -->
-    <div id="successAlert" class="alert bg-gradient-to-r from-green-500 to-green-600 shadow-lg hidden">
-        <div class="flex items-center">
-            <i class="fas fa-check-circle mr-2 text-2xl"></i>
-            <span>Message sent successfully!</span>
-        </div>
-    </div>
+    
 
     <footer class="bg-gray-800 text-white text-center p-4">
         <p>&copy; 2024 Ishaq Yudha. All rights reserved.</p>
@@ -202,13 +195,39 @@
         });
 
         function showSuccessAlert() {
-            successAlert.classList.remove('hidden');
-            successAlert.classList.add('show');
+            // Create the alert container
+            const alertContainer = document.createElement('div');
+            alertContainer.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 w-[450px] bg-[#08bb26] text-white rounded-lg shadow-lg opacity-0 transition-all duration-300';
+            alertContainer.style.transform = 'translate(-50%, -20px)';
+            
+            // Create the alert content
+            alertContainer.innerHTML = `
+                <div class="flex items-center gap-5 px-3 py-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <path d="m9 11 3 3L22 4"></path>
+                    </svg>
+                    <div>
+                        <div class="font-bold text-xl">Thank you!</div>
+                        <div class="text-base">Message sent successfully!</div>
+                    </div>
+                </div>
+            `;
+            
+            // Add to document
+            document.body.appendChild(alertContainer);
+            
+            // Trigger animation
             setTimeout(() => {
-                successAlert.classList.remove('show');
-                setTimeout(() => {
-                    successAlert.classList.add('hidden');
-                }, 300);
+                alertContainer.style.opacity = '1';
+                alertContainer.style.transform = 'translate(-50%, 0)';
+            }, 100);
+            
+            // Remove after delay
+            setTimeout(() => {
+                alertContainer.style.opacity = '0';
+                alertContainer.style.transform = 'translate(-50%, -20px)';
+                setTimeout(() => alertContainer.remove(), 300);
             }, 3000);
         }
 
