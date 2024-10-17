@@ -147,11 +147,11 @@
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-
+        
         const contactForm = document.getElementById('contactForm');
         const inputs = contactForm.querySelectorAll('input, textarea');
         const successAlert = document.getElementById('successAlert');
-
+        
         function showError(input, message) {
             const errorElement = input.parentElement.querySelector('.error-message') || document.createElement('p');
             errorElement.textContent = message;
@@ -161,7 +161,7 @@
             }
             input.classList.add('border-red-500');
         }
-
+        
         function clearError(input) {
             const errorElement = input.parentElement.querySelector('.error-message');
             if (errorElement) {
@@ -169,15 +169,15 @@
             }
             input.classList.remove('border-red-500');
         }
-
+        
         function validateInput(input) {
             clearError(input);
-
+        
             if (input.value.trim() === '') {
                 showError(input, `${input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required.`);
                 return false;
             }
-
+        
             if (input.type === 'email') {
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailPattern.test(input.value.trim())) {
@@ -185,31 +185,32 @@
                     return false;
                 }
             }
-
+        
             return true;
         }
-
+        
         inputs.forEach(input => {
             input.addEventListener('blur', () => validateInput(input));
             input.addEventListener('input', () => validateInput(input));
         });
-
-        function showSuccessAlert() {
+        
+        function showAlert(type, message) {
             // Create the alert container
             const alertContainer = document.createElement('div');
-            alertContainer.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 w-[450px] bg-[#08bb26] text-white rounded-lg shadow-lg opacity-0 transition-all duration-300';
+            alertContainer.className = `fixed top-20 left-1/2 transform -translate-x-1/2 w-[450px] ${type === 'success' ? 'bg-[#08bb26]' : 'bg-red-500'} text-white rounded-lg shadow-lg opacity-0 transition-all duration-300`;
             alertContainer.style.transform = 'translate(-50%, -20px)';
             
             // Create the alert content
             alertContainer.innerHTML = `
                 <div class="flex items-center gap-5 px-3 py-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <path d="m9 11 3 3L22 4"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${type === 'success' ? 'lucide-check-circle' : 'lucide-alert-circle'}">
+                        ${type === 'success' 
+                            ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path>'
+                            : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'}
                     </svg>
                     <div>
-                        <div class="font-bold text-xl">Thank you!</div>
-                        <div class="text-base">Message sent successfully!</div>
+                        <div class="font-bold text-xl">${type === 'success' ? 'Thank you!' : 'Oops!'}</div>
+                        <div class="text-base">${message}</div>
                     </div>
                 </div>
             `;
@@ -230,21 +231,23 @@
                 setTimeout(() => alertContainer.remove(), 300);
             }, 3000);
         }
-
+        
         contactForm.addEventListener('submit', function (event) {
             event.preventDefault();
-
+        
             let isValid = true;
-
+        
             inputs.forEach(input => {
                 if (!validateInput(input)) {
                     isValid = false;
                 }
             });
-
+        
             if (isValid) {
-                showSuccessAlert();
+                showAlert('success', 'Message sent successfully!');
                 contactForm.reset();
+            } else {
+                showAlert('error', 'Please fill out all required fields correctly.');
             }
         });
     </script>
